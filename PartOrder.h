@@ -37,7 +37,23 @@ public:
     bool saveDataToFile();//数据转化未文件
 private:
 // 私有成员变量
+    //收货人
     std::string recieveName;
+    //设计时间
+    std::string designTime;
+    //布置时间
+    std::string useTime;
+    //发货方式
+    std::string postStyle;
+    //收货地址省
+    std::string useProvince;
+    //收货地址市区
+    std::string useCity;
+    //收货地址县
+    std::string useCounty;
+    //收货地址区镇
+    std::string useTown;
+    //KT板代发地址
     std::string addr;
     std::string infos;
     std::vector<std::string> bgArr;

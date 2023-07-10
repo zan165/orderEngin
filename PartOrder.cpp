@@ -11,13 +11,13 @@ PartOrder::~PartOrder() {} // 析构函数实现为空
 
 
 int PartOrder::insertBg(std::vector<std::string> stringArr) {
-
+    bgArr = stringArr;
     return 0;
 } // 背景
 
 
 int PartOrder::insetGreetingBord(std::vector<std::string> stringArr) {
-
+    greetBordArr = stringArr;
     return 0;
 }//迎宾牌
 
@@ -30,10 +30,12 @@ bool PartOrder::tidyUpiInfo() {
 }
 
 std::vector<std::string> PartOrder::splitAddr() {
-
+    std::vector<std::string> arry;
+    return arry;
 }
 std::vector<std::string> PartOrder::splitInfos() {
-
+    std::vector<std::string> arry;
+    return arry;
 }
 
 //数据转化未文件

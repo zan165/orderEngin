@@ -66,3 +66,8 @@ void Utils::log(std::vector<std::string> array) {
 void Utils::log(std::string str) {
 		std::cout << str << std::endl;
 }
+
+
+bool Utils::exist(std::string dir) {
+	return std::filesystem::exists(dir);
+}
