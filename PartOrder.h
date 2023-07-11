@@ -54,6 +54,10 @@ private:
     //收货地址区镇
     std::string useTown;
     //KT板代发地址
+    std::string shippingAddress;
+    //文件目录
+    std::string catalog;
+
     std::string addr;
     std::string infos;
     std::vector<std::string> bgArr;
