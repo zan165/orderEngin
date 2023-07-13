@@ -71,3 +71,33 @@ void Utils::log(std::string str) {
 bool Utils::exist(std::string dir) {
 	return std::filesystem::exists(dir);
 }
+
+
+
+tm* Utils::getCurrentTime(tm* newlocaltime) {
+	time_t rawtime;
+
+
+
+
+	// 获取当前时间戳
+
+	time(&rawtime);
+
+
+
+	// 将时间戳转换为本地时间结构
+
+	errno_t err = localtime_s(newlocaltime, &rawtime);
+
+	if (err != 0) {
+
+		std::cout << "Error: localtime_s failed with error code " << err << std::endl;
+
+
+
+	}
+	//memset(&newlocaltime, 0, sizeof(struct tm));
+	return newlocaltime;
+
+}

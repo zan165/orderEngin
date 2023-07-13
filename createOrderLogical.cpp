@@ -13,10 +13,10 @@ int main() {
 	//是否包含迎宾牌 或 大头娃娃
 	bool haveYBP = false;
 	bool haveBG = true;
-
-	if (Utils::exist("")) {
-
-	}
+	std::string PARTY_HOME = "\\\\Desktop - 127asaa\\派对引擎";
+	std::string releasePath = "\\\\Fuwuqi\\服务器3-搜集图片案例\\材料包\\材料包素材\\每日设计材料包\\阿千\\确认\\测试不用管";
+	std::string MOUDLES_DIR = PARTY_HOME + "\\assets\\Moudles";
+	
 
 	//地址
 	Utils::log("请输入订单地址：");
@@ -43,7 +43,7 @@ int main() {
 			if (bgCode == "1") { haveYBP = true; }
 			break;
 		}
-		if (bgCode == "" || Utils::hasSpace(bgCode)) {
+		else if (Utils::hasSpace( bgCode)) {
 			Utils::log("背景编码错误,请重新输入");
 		}
 		else {

@@ -17,6 +17,9 @@
 #include<filesystem>
 //文件系统
 #include<time.h>
+//工具类
+#include"Utils.h"
+namespace fs = std::filesystem;
 #define PartOrder_H
 
 
@@ -35,7 +38,9 @@ public:
 
     bool tidyUpiInfo();//整理数据
     bool saveDataToFile();//数据转化未文件
-private:
+    bool createDetailText(std::string ,std::string*);
+    bool copyImages();
+
 // 私有成员变量
     //收货人
     std::string recieveName;
@@ -64,6 +69,7 @@ private:
     std::vector<std::string> greetBordArr;
     std::vector<std::string> splitAddr();
     std::vector<std::string> splitInfos();
+private:
 };
 
 

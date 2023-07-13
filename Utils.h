@@ -17,6 +17,7 @@ public:
 	static void log(std::string ingo);
 	static void log(std::vector<std::string> str_array);
 	static bool exist(std::string dir);
+	static tm* getCurrentTime(tm* newlocaltime);
 private:
    
 };
