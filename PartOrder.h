@@ -37,9 +37,13 @@ public:
     int testOrder();//创建测试订单
 
     bool tidyUpiInfo();//整理数据
-    bool saveDataToFile();//数据转化未文件
-    bool createDetailText(std::string ,std::string*);
-    bool copyImages();
+    bool saveDataToFile(std::string PARTY_HOME, std::string RELEASE_PATH, std::string MOUDLES_DIR, std::string ZSP_MOUDLES_DIR);//数据转化未文件
+    bool createDetailText(std::string);
+    bool copyImages(std::string PUBLIC_DIR, std::string BG_MOUDLES_DIR, std::string ZSP_MOUDLES_DIR);
+    bool copyBGImages(std::string PUBLIC_DIR, std::string MOUDLES_DIR);
+    bool copyZSPImages(std::string PUBLIC_DIR, std::string MOUDLES_DIR);
+    bool copyImg(std::string src_image_path, std::string dest_directory_path);
+
 
 // 私有成员变量
     //收货人

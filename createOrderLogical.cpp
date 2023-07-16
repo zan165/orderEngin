@@ -1,9 +1,31 @@
 #include "PartOrder.h"
 #include"Utils.h"
+#include"ConfigFile.h";
 
 
 
 int main() {
+	Utils::log("读取配置");
+	ConfigFile config("config.conig");
+	config.readFromFile("config.txt"); // 从config.txt文件中读取配置信息并存储到configMap中
+
+	/*config.setValue("PARTY_HOME", "G:\\PartEngin");
+	config.setValue("RELEASE_PATH", "G:\\cproject\\day01\\public_dir");
+	config.setValue("MOUDLES_DIR", "G:\\PartEngin\\assets\\Moudles");
+	config.setValue("ZSP_MOUDLES_DIR", "G:\\PartEngin\\assets\\PhotoGuid");*/
+
+	std::cout << "PARTY_HOME： " << config.getValue("PARTY_HOME") << std::endl;
+	std::cout << "RELEASE_PATH： " << config.getValue("RELEASE_PATH") << std::endl;
+	std::cout << "MOUDLES_DIR： " << config.getValue("MOUDLES_DIR") << std::endl;
+	std::cout << "ZSP_MOUDLES_DIR： " << config.getValue("ZSP_MOUDLES_DIR") << std::endl;
+
+	//config.writeToFile("config.txt"); // 将配置信息写入到config.txt文件中
+
+	//std::string command = "explorer G:\\cproject\\day01\\public_dir\\阿千\\7.15\\7.15_7.23线下_收货人：冉大大,"; // 替换为需要打开的文件夹路径
+	//Utils::log(command.c_str());;
+	//system(command.c_str());
+	//return 0;
+
 	Utils::log("创建订单");
 
 	std::string psInfo;
@@ -13,9 +35,10 @@ int main() {
 	//是否包含迎宾牌 或 大头娃娃
 	bool haveYBP = false;
 	bool haveBG = true;
-	std::string PARTY_HOME = "\\\\Desktop - 127asaa\\派对引擎";
-	std::string releasePath = "\\\\Fuwuqi\\服务器3-搜集图片案例\\材料包\\材料包素材\\每日设计材料包\\阿千\\确认\\测试不用管";
+	std::string PARTY_HOME = config.getValue("PARTY_HOME");
+	std::string RELEASE_PATH = config.getValue("RELEASE_PATH");
 	std::string MOUDLES_DIR = PARTY_HOME + "\\assets\\Moudles";
+	std::string ZSP_MOUDLES_DIR = config.getValue("ZSP_MOUDLES_DIR");
 	
 
 	//地址
@@ -54,7 +77,7 @@ int main() {
 	while (haveYBP) {
 		std::string ybpCode;
 
-		Utils::log("请输入背景编码，退出输入0 ：");
+		Utils::log("请输入迎宾牌编码，退出输入0 ：");
 		std::getline(std::cin, ybpCode);
 
 		if (ybpCode == "0") {
@@ -78,7 +101,7 @@ int main() {
 	po->tidyUpiInfo();
 	po->insertBg(strBG_array);
 	po->insetGreetingBord(strYBP_array);
-	po->saveDataToFile();
+	po->saveDataToFile(PARTY_HOME,RELEASE_PATH,MOUDLES_DIR,ZSP_MOUDLES_DIR);
 	
 	Utils::log("订单创建完成");
 	return 0;

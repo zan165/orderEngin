@@ -1,10 +1,6 @@
 #include "Utils.h"
 
 
-
-
-
-
 //¹¹Ôìº¯Êý
 Utils::Utils() {
 }
