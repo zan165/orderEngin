@@ -1,6 +1,6 @@
 #include "PartOrder.h"
 #include"Utils.h"
-#include"ConfigFile.h";
+#include"ConfigFile.h"
 
 
 
@@ -9,15 +9,15 @@ int main() {
 	ConfigFile config("config.conig");
 	config.readFromFile("config.txt"); // 从config.txt文件中读取配置信息并存储到configMap中
 
-	/*config.setValue("PARTY_HOME", "G:\\PartEngin");
-	config.setValue("RELEASE_PATH", "G:\\cproject\\day01\\public_dir");
-	config.setValue("MOUDLES_DIR", "G:\\PartEngin\\assets\\Moudles");
-	config.setValue("ZSP_MOUDLES_DIR", "G:\\PartEngin\\assets\\PhotoGuid");*/
+	//config.setValue("PARTY_HOME", "\\\\Desktop-127asaa\\派对引擎");
+	//config.setValue("RELEASE_PATH", "\\\\Fuwuqi\\服务器3-搜集图片案例\\材料包\\材料包素材\\每日设计材料包");
+	//config.setValue("MOUDLES_DIR", "G:\\PartEngin\\assets\\Moudles");
+	//config.setValue("ZSP_MOUDLES_DIR", "G:\\PartEngin\\assets\\PhotoGuid");
 
 	std::cout << "PARTY_HOME： " << config.getValue("PARTY_HOME") << std::endl;
 	std::cout << "RELEASE_PATH： " << config.getValue("RELEASE_PATH") << std::endl;
-	std::cout << "MOUDLES_DIR： " << config.getValue("MOUDLES_DIR") << std::endl;
-	std::cout << "ZSP_MOUDLES_DIR： " << config.getValue("ZSP_MOUDLES_DIR") << std::endl;
+	//std::cout << "MOUDLES_DIR： " << config.getValue("MOUDLES_DIR") << std::endl;
+	//std::cout << "ZSP_MOUDLES_DIR： " << config.getValue("ZSP_MOUDLES_DIR") << std::endl;
 
 	//config.writeToFile("config.txt"); // 将配置信息写入到config.txt文件中
 
@@ -38,7 +38,7 @@ int main() {
 	std::string PARTY_HOME = config.getValue("PARTY_HOME");
 	std::string RELEASE_PATH = config.getValue("RELEASE_PATH");
 	std::string MOUDLES_DIR = PARTY_HOME + "\\assets\\Moudles";
-	std::string ZSP_MOUDLES_DIR = config.getValue("ZSP_MOUDLES_DIR");
+	std::string ZSP_MOUDLES_DIR = PARTY_HOME + "\\assets\\PhotoGuid";
 	
 
 	//地址

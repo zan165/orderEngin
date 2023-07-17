@@ -7,7 +7,7 @@
 #include <string>
 #include <map>
 #define ConfigFile_H
-
+//╤ап╢еДжцнд╪Ч
 class ConfigFile
 {
 

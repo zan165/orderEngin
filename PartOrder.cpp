@@ -148,8 +148,9 @@ std::vector<std::string> split(const std::string& str, const std::string& delimi
 //数据转化未文件
 bool PartOrder::saveDataToFile(std::string PARTY_HOME, std::string releasePath, std::string MOUDLES_DIR,std::string ZSP_MOUDLES_DIR) {
 	tm nowTime;
+	bool isEmergency = false;
 
-	std:tm* curentTime = Utils::getCurrentTime(&nowTime);
+	tm* curentTime = Utils::getCurrentTime(&nowTime);
 
 	//今天日期
 	std::string currDate = std::to_string(curentTime->tm_mon + 1) + "." + std::to_string(curentTime->tm_mday);
@@ -157,20 +158,24 @@ bool PartOrder::saveDataToFile(std::string PARTY_HOME, std::string releasePath, 
 	std::vector<std::string> addrInfos = split(addr," |,");
 	std::vector<std::string> psInfos = split(infos," |,");
 	std::string acceptName = "阿千";
-	if (psInfos[0] == "q") {
+	if (psInfos[0] == "q"|| psInfos[0]=="q急") {
 		acceptName = "阿千";
 	}
-	else if (psInfos[0] == "m") {
+	else if (psInfos[0] == "m"|| psInfos[0] == "m急") {
 		acceptName = "曾志康";
-	}else if (psInfos[0] == "zlh") {
+	}else if (psInfos[0] == "zlh"|| psInfos[0] == "zlh急") {
 		acceptName = "张";
 	}
 	else {
-		acceptName = psInfos[0];
+		acceptName = "林宝";
+	}
+
+	if (infos.find("急") != std::string::npos) {
+		isEmergency = true;
 	}
 
 
-	releasePath = releasePath + "\\" + acceptName+"\\"+currDate;
+	releasePath = releasePath + "\\" + acceptName+"\\待设计"+"\\"+currDate;
 	std::string excuteDate = psInfos[2];
 	std::string courier = "";
 	
@@ -188,6 +193,7 @@ bool PartOrder::saveDataToFile(std::string PARTY_HOME, std::string releasePath, 
 
 	std::string shippingAddressCity = "四川省成都市";
 	std::string pName = currDate + "_" + excuteDate + courier + "_收货人：" + recieveName;
+				pName = isEmergency ? "急" + pName : pName;
 	//拼出文件名
 	if (usrAddrCity != "") {
 		pName = pName + "_" + usrAddrCity;

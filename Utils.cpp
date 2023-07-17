@@ -14,7 +14,7 @@ Utils::~Utils() {
 bool Utils::hasSpace(std::string str) {
 	//string str = "Hello World!"; // 待判断的字符串
 
-	int n = str.size(); // 获取字符串长度
+	size_t n = str.size(); // 获取字符串长度
 
 	bool hasSpace = false; // 用于标记字符串中是否含有空格
 
